@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabonas.tv</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">  <!-- Link para o CSS separado -->
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header>
+        <div class="logo"><span>SABONAS</span>
+        </div>
+    </header>
+
+    <!-- Partículas de Fundo -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container fade-in">
+            <img src="Imagens/SABONAS PERFIL.png" alt="Foto de Perfil" class="profile-img">  <!-- Mude para sua imagem -->
+            <h1>SABONAS - (Pedro Henrique) </h1>
+            <p class="subtitle">Streamer • Creator</p>
+            <div class="buttons">
+                <button onclick="window.open('https://twitch.tv/sabonas_ofccx', '_blank')"> <img src="Imagens/logos/icons8-twitch-35.png" alt="Twitch Logo" class="link-icon"> Twitch</button>
+                <button onclick="window.open('https://youtube.com/@saboninhas', '_blank')"> <img src="Imagens/logos/icons8-youtube-35.png" alt="YouTube Logo" class="link-icon"> YouTube</button>
+                <button onclick="window.open('https://discord.gg/ySXuwANtaU', '_blank')"> <img src="Imagens/logos/icons8-discord-35 (1).png" alt="Discord Logo" class="link-icon"> Discord</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status de Live -->
+    <section id="live-status">
+        <div id="live-content">
+    <div class="live-banner" id="banner">AO VIVO AGORA (Simulação)</div>
+    <img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_sabonas-800x450.jpg" alt="Live Placeholder" style="width: 100%; max-width: 800px; height: 450px; border-radius: 12px; cursor: pointer;" onclick="window.open('https://twitch.tv/sabonas', '_blank')">
+</div>
+        <div class="container fade-in">
+            <h2>Status da Live</h2>
+            <div id="live-content">
+                <div class="live-banner" id="banner"> <button onclick="window.open('https://twitch.tv/sabonas_ofccx', '_blank')"> Clique para assistir </button> </div> 
+                <iframe src="http://player.twitch.tv/?channel=sabonas_ofccx&parent=127.0.0.1" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+            </div>
+            <div id="offline-content" style="display: none;">
+                <p>Próxima live: Sexta-feira às 18h</p>
+            </div>
+        </div>
+    </section>
+    <img src="Imagens/logos/cloud-9 logo 2.png" alt="Cloud9 Logo" class="cloud9-logo-2">
+    <section id="agenda">
+        <div class="container fade-in">
+            <h2>horários Das lives🔴</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Sexta-feira</h3>
+                    <p>Valorant — 18h ás 22h</p>
+                </div>
+                <div class="card">
+                    <h3>Sábado</h3>
+                    <p>Valorant — 18h ás 22h</p>
+                </div>
+                <div class="card">
+                    <h3>Domingo</h3>
+                    <p>Valorant — 17h ás 23h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <img src="Imagens/logos/cloud-9-seeklogo.png" alt="Cloud9 Logo" class="cloud9-logo">
+    <!-- Hub de Links -->
+    <section id="links">
+        <div class="container fade-in">
+            <h2>Redes Sociais</h2>
+            <div class="grid">
+                <a href="https://twitch.tv/sabonas_ofccx" class="link-btn btn"> <img src="Imagens/logos/icons8-twitch-35.png"  alt="Twitch Logo">Twitch</a>
+                <a href="https://youtube.com/@saboninhas" class="link-btn btn"> <img src="Imagens/logos/icons8-youtube-35.png"  alt="YouTube Logo">YouTube</a>
+                <a href="https://instagram.com/pedro_ofccx" class="link-btn btn"> <img src="Imagens/logos/icons8-instagram-35.png"  alt="Instagram Logo">Instagram</a>
+                <a href="https://discord.gg/ySXuwANtaU" class="link-btn btn"> <img src="Imagens/logos/icons8-discord-35 (1).png"  alt="Discord Logo">Discord</a>
+                <a href="https://saboninhas.wixsite.com/sabonas-designer" class="link-btn btn"> <img src="Imagens/logos/icons8-site-35.png"  alt="">Meu site</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Últimos Vídeos -->
+    <section id="videos">
+        <div class="container fade-in">
+            <h2>Últimos Vídeos</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/9QK2_z-Wz70" title="Vídeo 1" allowfullscreen></iframe>
+                    <h3>Mas Você Que Eu Amo - Franco, The Sir! (LETRA) | SABONAS</h3>
+                </div>
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/TEy6pqe3k9c" title="Vídeo 2" allowfullscreen></iframe>
+                    <h3>DAQUI RA CIMA - Lil Chaiz(Letra) | Sabonas</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Sabonas. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão Flutuante -->
+    <div id="live-float" onclick="window.open('https://twitch.tv/sabonas', '_blank')">🔴</div>
+
+    <script src="js/script.js"></script>  <!-- Link para o JS separado -->
+</body>
+</html>

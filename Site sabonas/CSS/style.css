@@ -1,0 +1,456 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #001f3f 100%); /* Gradiente azul escuro Cloud9 */
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite, parallaxScroll 10s linear infinite;
+    color: #ffffff; /* Branco para texto */
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+}
+body {
+    font-family: 'Devil Breeze', sans-serif; /* Para texto normal */
+}
+h1, h2, h3 {
+    font-family: 'Devil Breeze', sans-serif; /* Para títulos */
+    text-transform: uppercase; /* Opcional: maiúsculas como no logo Cloud9 */
+}
+button, .btn {
+    font-family: 'Devil Breeze', sans-serif; /* Para botões */
+}
+@font-face {
+    font-family: 'Devil Breeze';
+    src: url('fonts/devil-breeze.woff') format('woff'); /* Ajuste para o formato do arquivo */
+    font-weight: normal;
+    font-style: normal;
+}
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes parallaxScroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    transform: translateZ(0);
+}
+.container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 116, 204, 0.1); /* Azul médio Cloud9 */
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 116, 204, 0.3); /* Glow azul */
+}
+h1, h2, h3 {
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 116, 204, 0.5); /* Glow azul */
+}
+h1 { 
+    font-size: 4rem; 
+    background: linear-gradient(45deg, #0074cc, #00aaff, #ffffff); /* Gradiente azul para título */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 3s ease-in-out infinite alternate;
+}
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px rgba(0, 116, 204, 0.5); }
+    to { text-shadow: 0 0 30px rgba(0, 116, 204, 1); }
+}
+h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+h3 { font-size: 1.8rem; }
+p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+button, .btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(0, 116, 204, 0.5); /* Bordas azuis */
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0, 116, 204, 0.2); /* Sombra azul */
+    position: relative;
+    overflow: hidden;
+}
+button::before, .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 116, 204, 0.4), transparent);
+    transition: left 0.5s;
+}
+button:hover, .btn:hover {
+    background: rgba(0, 116, 204, 0.1);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 116, 204, 0.6); /* Glow azul intenso */
+    border-color: #0074cc;
+}
+button:hover::before, .btn:hover::before {
+    left: 100%;
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Header Fixo */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 31, 63, 0.9); /* Azul escuro Cloud9 */
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 116, 204, 0.3); /* Borda azul */
+    box-shadow: 0 0 20px rgba(0, 116, 204, 0.2);
+}
+header .logo { 
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    color: #0074cc; /* Azul médio */
+    text-shadow: 0 0 10px rgba(0, 116, 204, 0.8);
+}
+header nav a { 
+    margin: 0 1rem; 
+    text-decoration: none; 
+    color: #fff; 
+    transition: all 0.3s ease;
+    position: relative;
+}
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #0074cc; /* Azul */
+    transition: width 0.3s;
+}
+header nav a:hover { 
+    color: #0074cc; 
+    text-shadow: 0 0 10px rgba(0, 116, 204, 0.8);
+}
+header nav a:hover::after { width: 100%; }
+
+/* Hero Section */
+#hero .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    border: 4px solid rgba(0, 116, 204, 0.6); /* Borda azul */
+    box-shadow: 0 0 30px rgba(0, 116, 204, 0.8); /* Glow azul */
+    animation: pulseGlow 2s infinite;
+}
+@keyframes pulseGlow { 
+    0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 116, 204, 0.8); } 
+    50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(0, 116, 204, 1); } 
+}
+#hero .subtitle { 
+    font-size: 1.5rem; 
+    margin-bottom: 2rem; 
+    opacity: 0.9; 
+    color: #00aaff; /* Azul claro */
+}
+#hero .buttons { 
+    display: flex; 
+    gap: 1rem; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+}
+
+/* Live Status */
+#live-status .live-banner {
+    background: linear-gradient(45deg, #0074cc, #00aaff, #ffffff); /* Gradiente azul */
+    padding: 1rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(0, 116, 204, 0.8);
+    animation: bannerPulse 1.5s infinite;
+}
+@keyframes bannerPulse { 
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.02); } 
+}
+#live-status iframe { 
+    width: 100%; 
+    max-width: 800px; 
+    height: 450px; 
+    border-radius: 15px; 
+    border: 2px solid rgba(0, 116, 204, 0.5);
+    box-shadow: 0 0 30px rgba(0, 116, 204, 0.6);
+}
+
+/* Agenda */
+#agenda .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 116, 204, 0.3); /* Borda azul */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0, 116, 204, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 116, 204, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    opacity: 0;
+}
+.card:hover { 
+    transform: translateY(-15px) scale(1.05); 
+    box-shadow: 0 15px 40px rgba(0, 116, 204, 0.8);
+    border-color: #0074cc;
+}
+.card:hover::before { opacity: 1; }
+
+/* Hub de Links */
+#links .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.link-btn {
+    padding: 2rem;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 116, 204, 0.2);
+}
+.link-btn:hover { 
+    transform: scale(1.15) translateY(-10px); 
+    box-shadow: 0 10px 30px rgba(0, 116, 204, 0.8);
+}
+
+/* Vídeos */
+#videos .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.video-item iframe { 
+    width: 100%; 
+    height: 200px; 
+    border-radius: 15px; 
+    border: 2px solid rgba(0, 116, 204, 0.5);
+    box-shadow: 0 0 20px rgba(0, 116, 204, 0.6);
+}
+
+/* Sobre */
+#about { text-align: center; }
+
+/* Design Futuro */
+#design { 
+    background: rgba(255, 255, 255, 0.03); 
+    padding: 4rem 2rem; 
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 116, 204, 0.2);
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 31, 63, 0.9); /* Azul escuro */
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 116, 204, 0.3);
+}
+footer .socials { 
+    display: flex; 
+    justify-content: center; 
+    gap: 1rem; 
+    margin-bottom: 1rem; 
+}
+
+/* Botão Flutuante */
+#live-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(45deg, #0074cc, #00aaff); /* Gradiente azul */
+    color: #fff;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 116, 204, 0.8);
+    cursor: pointer;
+    animation: pulseGlow 2s infinite;
+    z-index: 200;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+#live-float.live { animation: pulseGlow 1s infinite; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    #hero .buttons { flex-direction: column; }
+    .cards { grid-template-columns: 1fr; }
+    .container { padding: 1rem; }
+}
+
+/* Partículas Leves */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+.particle {
+    position: absolute;
+    background: rgba(0, 116, 204, 0.3); /* Partículas azuis */
+    border-radius: 50%;
+    animation: float 8s infinite linear;
+    box-shadow: 0 0 10px rgba(0, 116, 204, 0.5);
+}
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Toggle BB-8 (Ajustado para Azul) */
+.bb8-toggle__container {
+    background: linear-gradient(135deg, #001f3f, #003366);
+}
+.bb8-toggle__scenery {
+    background: linear-gradient(135deg, #87ceeb, #ffffff);
+}
+.bb8-toggle__checkbox:checked ~ .bb8-toggle__container .bb8-toggle__scenery {
+    background: linear-gradient(135deg, #001f3f, #003366);
+}
+.bb8-toggle__star {
+    background: #ffffff;
+}
+.bb8-toggle__cloud {
+    background: rgba(255, 255, 255, 0.8);
+}
+.bb8__head, .bb8__body {
+    background: #ffffff;
+}
+.bb8__antenna {
+    background: #000;
+}
+
+/* Tema Light Mode (Opcional, Ajustado para Cloud9) */
+body.light-mode {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #ffffff 100%);
+    color: #001f3f;
+}
+body.light-mode .container {
+    background: rgba(0, 31, 63, 0.05);
+    border: 1px solid rgba(0, 116, 204, 0.2);
+}
+body.light-mode h1, body.light-mode h2, body.light-mode h3 {
+    color: #001f3f;
+}
+body.light-mode header {
+    background: rgba(255, 255, 255, 0.9);
+    color: #001f3f;
+}
+body.light-mode footer {
+    background: rgba(255, 255, 255, 0.9);
+    color: #001f3f;
+}
+body.light-mode .card {
+    background: rgba(0, 31, 63, 0.05);
+    border: 1px solid rgba(0, 116, 204, 0.3);
+}
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Espaço entre imagem e texto */
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.link-icon {
+    width: 24px; /* Largura da imagem */
+    height: 24px; /* Altura da imagem */
+    transition: transform 0.3s ease;
+}
+.link-btn:hover .link-icon {
+    transform: scale(1.2); /* Imagem cresce no hover */
+}
+.cloud9-logo {
+    width: 400px; /* Largura da logo – ajuste para maior/menor */
+    height: auto; /* Mantém proporção */
+    display: block;
+    margin: 0 auto 2rem; /* Centraliza horizontalmente e adiciona espaço abaixo */
+    filter: drop-shadow(0 0 10px rgba(0, 116, 204, 0.5)); /* Glow azul Cloud9 */
+    transition: transform 0.3s ease;
+}
+.cloud9-logo:hover {
+    transform: scale(1.1); /* Cresce no hover para interatividade */
+}
+@media (max-width: 768px) {
+    .cloud9-logo { width: 150px; } /* Menor em telas pequenas */
+}
+
+.cloud9-logo-2 {
+    width: 400px; /* Tamanho maior */
+    height: auto;
+    display: block;
+    margin: 1rem auto 3rem; /* Espaço acima e abaixo, centralizado */
+    filter: drop-shadow(0 0 10px rgba(0, 116, 204, 0.5));
+    transition: transform 0.3s ease;
+}
+.cloud9-logo-2:hover {
+    transform: scale(1.1);
+}
+@media (max-width: 768px) {
+    .cloud9-logo-2 { width: 150px; }
+}
